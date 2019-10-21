@@ -14,26 +14,34 @@ const session = require('express-session')
 const app = express()
 
 // ces lignes (cors) sont importantes pour les sessions dans la version de développement
-app.use(cors({
-  credentials: true,
-  origin: 'http://localhost:8080'
-}))
-app.use(session({
-  secret: 'blablabla', // changez cette valeur
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false } // ne changez que si vous avez activé le https
-}))
+app.use(
+  cors({
+    credentials: true,
+    origin: 'http://localhost:8080'
+  })
+)
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'dist/')))
+app.use(
+  session({
+    secret: 'blablabla', // changez cette valeur
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // ne changez que si vous avez activé le https
+  })
+)
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
-const path = require('path')
+// const path = require('path')
 app.use(express.static(path.join(__dirname, '/dist')))
 
-const users = [{
-  username: 'admin',
-  password: 'changethispassword'
-}]
+const users = [
+  {
+    username: 'admin',
+    password: 'changethispassword'
+  }
+]
 
 app.get('/api/test', (req, res) => {
   console.log('ce console.log est appelé au bon moment')
@@ -41,7 +49,8 @@ app.get('/api/test', (req, res) => {
     {
       title: 'truc',
       content: 'machin'
-    }, {
+    },
+    {
       title: 'truc2',
       content: 'machin2'
     }
@@ -52,7 +61,9 @@ app.post('/api/login', (req, res) => {
   console.log('req.body', req.body)
   console.log('req.query', req.query)
   if (!req.session.userId) {
-    const user = users.find(u => u.username === req.body.login && u.password === req.body.password)
+    const user = users.find(
+      u => u.username === req.body.login && u.password === req.body.password
+    )
     if (!user) {
       // gérez le cas où on n'a pas trouvé d'utilisateur correspondant
       res.status(401)
