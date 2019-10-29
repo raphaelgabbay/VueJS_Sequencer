@@ -19,9 +19,7 @@
       <v-card class="mx-auto" max-width="400" tile>
         <v-list-item v-for="(item, index) in todos" v-bind:key="item.id">
           <v-list-item-content>
-            <v-list-item-title>
-              {{ item.name }}
-            </v-list-item-title>
+            <v-list-item-title>{{ item.name }}</v-list-item-title>
             <v-list-item-subtitle>
               {{ item.description }}
               <v-btn @click="rmElement(index)">Remove</v-btn>
@@ -34,38 +32,36 @@
 </template>
 
 <script>
-
 export default {
   data: () => ({
     valid: false,
-    name: '',
-    description: '',
+    name: "",
+    description: "",
     todos: [],
-    url: '' // 'http://localhost:4000'
+    url: "" // 'http://localhost:4000'
   }),
   methods: {
-    async login () {
+    async login() {
       // connecter l'utilisateur
-      const response = await this.axios.post(this.url + '/api/login', {
-        login: 'admin',
-        password: 'changethispassword'
-      })
-      console.log('response is:', response)
+      const response = await this.axios.post(this.url + "/api/login", {
+        login: "admin",
+        password: "changethispassword"
+      });
+      console.log("response is:", response);
     },
-    logout () {
-    },
-    addElement () {
+    logout() {},
+    addElement() {
       this.todos.push({
         id: this.todos.length,
         name: this.name,
         description: this.description
-      })
-      console.log('ajouté !')
+      });
+      console.log("ajouté !");
     },
-    rmElement (index) {
-      console.log('index', index)
-      this.todos.splice(index, 1)
+    rmElement(index) {
+      console.log("index", index);
+      this.todos.splice(index, 1);
     }
   }
-}
+};
 </script>

@@ -1,11 +1,11 @@
 {
-  "name": "first-app",
+  "name": "vue-sequencer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint --fix",
     "start": "node server.js"
   },
   "dependencies": {
@@ -15,10 +15,15 @@
     "core-js": "^2.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
+    "express-session": "^1.17.0",
     "morgan": "^1.9.1",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "tone": "^13.8.25",
     "vue": "^2.6.10",
-    "vue-axios": "^2.1.4",
+    "vue-axios": "^2.1.5",
     "vuetify": "^2.0.0"
   },
   "devDependencies": {
@@ -29,8 +34,12 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
     "sass": "^1.17.4",
     "sass-loader": "^7.1.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
     "vue-cli-plugin-vuetify": "^0.6.3",
     "vue-template-compiler": "^2.6.10",
     "vuetify-loader": "^1.2.2"

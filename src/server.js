@@ -17,7 +17,7 @@ const app = express()
 app.use(
   cors({
     credentials: true,
-    origin: 'http://localhost:8080'
+    origin: 'http://localhost:8080' // si votre port est différent, changez cette valeur !
   })
 )
 const path = require('path')
