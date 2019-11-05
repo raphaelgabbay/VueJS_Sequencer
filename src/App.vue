@@ -3,7 +3,7 @@
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>VueJS Sequencer</span>
-        <span style="border:1px solid red;" class="font-weight-light">GABBAY | SABLON | DIABI</span>
+        <span style="padding:100px" class="font-weight-light">GABBAY | SABLON | DIABI</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text href="https://github.com/raphaelgabbay/VueJS_Sequencer" target="_blank">
@@ -13,21 +13,29 @@
 
     <v-content>
       <!-- <HelloWorld /> -->
-      <Sequencer />
+      <Buttons />
+      <!-- <Sequencer /> -->
     </v-content>
   </v-app>
 </template>
+<!--
+  </v-app>
+</template>-->
+
+
 
 <script>
 // import HelloWorld from "./components/HelloWorld";
 import Sequencer from "./components/Sequencer";
 import MyLine from "./components/MyLine";
+import Buttons from "./components/Buttons";
 // import Hello from "./components/Hello";
 
 export default {
   name: "App",
   components: {
     // HelloWorld
+    Buttons,
     Sequencer,
     MyLine
     // Hello
